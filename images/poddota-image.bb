@@ -25,5 +25,6 @@ IMAGE_INSTALL += " \
     ${SECURITY_TOOLS} \
     ${WIREGUARD} \
 "
+IMAGE_INSTALL_append = " jq p7zip"
 
 export IMAGE_BASENAME = "console-image"
