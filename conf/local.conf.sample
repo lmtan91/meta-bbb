@@ -17,7 +17,11 @@ DISTRO_FEATURES_BACKFILL_CONSIDERED += "pulseaudio opengl"
 PREFERRED_PROVIDER_jpeg = "libjpeg-turbo"
 
 PREFERRED_PROVIDER_udev = "eudev"
-VIRTUAL-RUNTIME_init_manager = "sysvinit"
+
+DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
 # Default kernel is 5.8, but you can change here
 # PREFERRED_VERSION_linux-stable = "5.4.%"
