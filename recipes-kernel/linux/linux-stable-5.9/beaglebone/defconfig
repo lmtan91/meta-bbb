@@ -110,7 +110,7 @@ CONFIG_GENERIC_SCHED_CLOCK=y
 #
 # end of Scheduler features
 
-# CONFIG_CGROUPS is not set
+CONFIG_CGROUPS=y
 # CONFIG_NAMESPACES is not set
 # CONFIG_CHECKPOINT_RESTORE is not set
 # CONFIG_SCHED_AUTOGROUP is not set
