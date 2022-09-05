@@ -16,4 +16,5 @@ BBLAYERS ?= " \
   ${HOME}/poky-dunfell/meta-security \
   ${HOME}/poky-dunfell/meta-jumpnow \
   ${HOME}/bbb/meta-bbb \
+  ${HOME}/bbb/meta-rtlwifi \
 "

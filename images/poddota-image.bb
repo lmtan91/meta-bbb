@@ -25,6 +25,6 @@ IMAGE_INSTALL += " \
     ${SECURITY_TOOLS} \
     ${WIREGUARD} \
 "
-IMAGE_INSTALL_append = " jq p7zip"
+IMAGE_INSTALL_append = " jq p7zip rtl8821cu dhcp-client"
 
 export IMAGE_BASENAME = "console-image"
