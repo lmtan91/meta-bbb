@@ -38,6 +38,7 @@ SRC_URI = " \
     file://0001-spidev-Add-a-generic-compatible-id.patch \
     file://0002-dts-Remove-bbb-cape-i2c-definitions.patch \
     file://0003-wlcore-Change-NO-FW-RX-BA-session-warnings-to-debug.patch \
+    file://0001-BeagleBone-pinmux-helper.patch \
     \
     file://bbb-dcan0.dtsi;subdir=git/arch/arm/boot/dts \
     file://bbb-dcan1.dtsi;subdir=git/arch/arm/boot/dts \
