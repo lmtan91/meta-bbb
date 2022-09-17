@@ -1,0 +1,56 @@
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index 64c3e9269f40c..0fbf3239c979c 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -67,6 +67,38 @@ AM33XX_PADCONF(AM335X_PIN_MCASP0_ACLKX, PIN_OUTPUT_PULLDOWN, MUX_MODE0)
+ 			AM33XX_PADCONF(AM335X_PIN_GPMC_A11, PIN_OUTPUT_PULLDOWN, MUX_MODE7) /* gpmc_a11.GPIO1_27 */
+ 		>;
+ 	};
++
++	P8_11_default_pin: pinmux_P8_11_default_pin {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_GPMC_AD13, PIN_INPUT_PULLUP, MUX_MODE7)
++		>;
++	};
++};
++
++&ocp {
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	P8_11_pinmux {
++		compatible = "bone-pinmux-helper";
++		status = "okay";
++		//pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "pruout", "qep";
++		pinctrl-names = "default";
++		pinctrl-0 = <&P8_11_default_pin>;
++	};
++	// cape-universal {
++    //             compatible = "gpio-of-helper";
++    //             status = "okay";
++    //             pinctrl-names = "default";
++    //             pinctrl-0 = <>;
++
++	// 	P8_11 {
++    //                 gpio-name = "P8_11";
++    //                 gpio = <&gpio2 13 0>;
++    //                 input;
++    //                 dir-changeable;
++    //             };
++	// };
+ };
+ 
+ &lcdc {
+diff --git a/arch/arm/boot/dts/am33xx.dtsi b/arch/arm/boot/dts/am33xx.dtsi
+index 5cb4cc37cb6d0..1ab54ee9dd724 100644
+--- a/arch/arm/boot/dts/am33xx.dtsi
++++ b/arch/arm/boot/dts/am33xx.dtsi
+@@ -172,7 +172,7 @@ mpu {
+ 	 * for the moment, just use a fake OCP bus entry to represent
+ 	 * the whole bus hierarchy.
+ 	 */
+-	ocp {
++	ocp: ocp {
+ 		compatible = "simple-bus";
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
