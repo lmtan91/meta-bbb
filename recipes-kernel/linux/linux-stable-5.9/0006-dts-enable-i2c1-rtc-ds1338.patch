@@ -1,0 +1,42 @@
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index 0fbf3239c979c..cc98ef82dfbfd 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -73,6 +73,13 @@ P8_11_default_pin: pinmux_P8_11_default_pin {
+ 			AM33XX_PADCONF(AM335X_PIN_GPMC_AD13, PIN_INPUT_PULLUP, MUX_MODE7)
+ 		>;
+ 	};
++
++	bb_i2c1_pins: pinmux_bb_i2c1_pins {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_SPI0_CS0, PIN_INPUT_PULLUP, MUX_MODE2)
++			AM33XX_PADCONF(AM335X_PIN_SPI0_D1, PIN_INPUT_PULLUP, MUX_MODE2)
++		>;
++	};
+ };
+ 
+ &ocp {
+@@ -145,6 +152,23 @@ hdmi_0: endpoint@0 {
+ 	};
+ };
+ 
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&bb_i2c1_pins>;
++	status = "okay";
++	clock-frequency = <100000>;
++
++	 /* shut up DTC warnings */
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	/* MCP79410 RTC module */
++	rtc@68 {
++		compatible = "maxim,ds1338";
++		reg = <0x68>;
++	};
++};
++
+ &rtc {
+ 	system-power-controller;
+ };
