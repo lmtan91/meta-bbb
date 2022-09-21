@@ -41,6 +41,7 @@ SRC_URI = " \
     file://0004-BeagleBone-pinmux-helper.patch \
     file://0005-dts-enable-B8-11-as-ESTOP_IN.patch \
     file://0006-dts-enable-i2c1-rtc-ds1338.patch \
+    file://0007-dts-enable-rs422.patch \
     \
     file://bbb-dcan0.dtsi;subdir=git/arch/arm/boot/dts \
     file://bbb-dcan1.dtsi;subdir=git/arch/arm/boot/dts \

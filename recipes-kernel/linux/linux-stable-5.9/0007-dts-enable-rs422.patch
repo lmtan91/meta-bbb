@@ -1,0 +1,31 @@
+diff --git a/arch/arm/boot/dts/am335x-bone-common.dtsi b/arch/arm/boot/dts/am335x-bone-common.dtsi
+index a7645790686d7..fe7d2558d8b52 100644
+--- a/arch/arm/boot/dts/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/am335x-bone-common.dtsi
+@@ -175,6 +175,13 @@ AM33XX_PADCONF(AM335X_PIN_GPMC_AD6, PIN_INPUT_PULLUP, MUX_MODE1) /* gpmc_ad6.mmc
+ 			AM33XX_PADCONF(AM335X_PIN_GPMC_AD7, PIN_INPUT_PULLUP, MUX_MODE1) /* gpmc_ad7.mmc1_dat7 */
+ 		>;
+ 	};
++	
++	uart2_pins: uart2_pins {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT, MUX_MODE1)      /* spi0_sclk.uart2_rxd */
++			AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_OUTPUT, MUX_MODE1)       /* spi0_d0.uart2_txd */
++		>;
++	};
+ };
+ 
+ &uart0 {
+@@ -184,6 +191,12 @@ &uart0 {
+ 	status = "okay";
+ };
+ 
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2_pins>;
++	status = "okay";
++};
++
+ &usb0 {
+ 	dr_mode = "peripheral";
+ 	interrupts-extended = <&intc 18 &tps 0>;
