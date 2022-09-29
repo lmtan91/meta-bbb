@@ -17,4 +17,6 @@ BBLAYERS ?= " \
   ${HOME}/poky-dunfell/meta-jumpnow \
   ${HOME}/bbb/meta-bbb \
   ${HOME}/bbb/meta-alencon \
+  ${HOME}/bbb/meta-swupdate \
+  ${HOME}/bbb/meta-swupdate-boards \
 "
