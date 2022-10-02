@@ -59,3 +59,5 @@ PATCHRESOLVE = "noop"
 RM_OLD_IMAGE = "1"
 INHERIT += "rm_work"
 CONF_VERSION = "1"
+
+IMAGE_FSTYPES ?= "ext4 tar.xz"
