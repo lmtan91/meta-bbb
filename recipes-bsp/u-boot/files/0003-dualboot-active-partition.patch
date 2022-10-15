@@ -1,0 +1,25 @@
+diff --git a/include/environment/ti/mmc.h b/include/environment/ti/mmc.h
+index bb4af0a3d5..a6a9ec8a24 100644
+--- a/include/environment/ti/mmc.h
++++ b/include/environment/ti/mmc.h
+@@ -10,8 +10,11 @@
+ 
+ #define DEFAULT_MMC_TI_ARGS \
+ 	"mmcdev=0\0" \
++	"rootfspart=2\0" \
++	"ustate=1\0" \
+ 	"mmcrootfstype=ext4 rootwait\0" \
+ 	"finduuid=part uuid mmc ${bootpart} uuid\0" \
++	"mmcargs=setenv bootargs console=${console} root=/dev/mmcblk0p${rootfspart} rootfstype=${mmcrootfstype} ${optargs}\0" \
+ 	"args_mmc=run finduuid;setenv bootargs console=${console} " \
+ 		"${optargs} " \
+ 		"root=PARTUUID=${uuid} rw " \
+@@ -41,7 +44,7 @@
+ 				"fi;" \
+ 			"fi;" \
+ 		"fi;\0" \
+-	"mmcloados=run args_mmc; " \
++	"mmcloados=run mmcargs; " \
+ 		"if test ${boot_fdt} = yes || test ${boot_fdt} = try; then " \
+ 			"if run loadfdt; then " \
+ 				"bootz ${loadaddr} - ${fdtaddr}; " \
