@@ -77,7 +77,7 @@ fi
 
 if [ ! -f "${SRCDIR}/emmc-uEnv.txt" ]; then
     echo "File not found: ${SRCDIR}/emmc-uEnv.txt"
-    exit 1
+#    exit 1
 fi
 
 echo "Formatting FAT partition on $target_dev"
