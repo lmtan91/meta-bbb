@@ -7,7 +7,7 @@ index bb4af0a3d5..a6a9ec8a24 100644
  #define DEFAULT_MMC_TI_ARGS \
  	"mmcdev=0\0" \
 +	"rootfspart=2\0" \
-+	"ustate=1\0" \
++	"ustate=0\0" \
  	"mmcrootfstype=ext4 rootwait\0" \
  	"finduuid=part uuid mmc ${bootpart} uuid\0" \
 +	"mmcargs=setenv bootargs console=${console} root=/dev/mmcblk0p${rootfspart} rootfstype=${mmcrootfstype} ${optargs}\0" \
