@@ -1,0 +1,33 @@
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index cc98ef82dfbf..be0057c562ee 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -70,7 +70,13 @@ AM33XX_PADCONF(AM335X_PIN_GPMC_A11, PIN_OUTPUT_PULLDOWN, MUX_MODE7) /* gpmc_a11.
+ 
+ 	P8_11_default_pin: pinmux_P8_11_default_pin {
+ 		pinctrl-single,pins = <
+-			AM33XX_PADCONF(AM335X_PIN_GPMC_AD13, PIN_INPUT_PULLUP, MUX_MODE7)
++			AM33XX_PADCONF(AM335X_PIN_GPMC_AD13, PIN_INPUT_PULLDOWN, MUX_MODE7)
++		>;
++	};
++
++	P8_13_default_pin: pinmux_P8_13_default_pin {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_GPMC_AD9, PIN_OUTPUT_PULLDOWN, MUX_MODE7)
+ 		>;
+ 	};
+ 
+@@ -106,6 +112,13 @@ P8_11_pinmux {
+     //                 dir-changeable;
+     //             };
+ 	// };
++
++	P8_13_pinmux {
++		compatible = "bone-pinmux-helper";
++		status = "okay";
++		pinctrl-names = "default";
++		pinctrl-0 = <&P8_13_default_pin>;
++	};
+ };
+ 
+ &lcdc {
