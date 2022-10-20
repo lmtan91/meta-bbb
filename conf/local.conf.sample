@@ -45,14 +45,6 @@ SDKMACHINE = "x86_64"
 # for empty root password
 # EXTRA_IMAGE_FEATURES = "debug-tweaks"
 
-# to enable a root password of jumpnowtek
-INHERIT += "extrausers"
-EXTRA_USERS_PARAMS = "usermod -P alencon root; "
-
-# to force a password change on first login
-# INHERIT += "chageusers"
-# CHAGE_USERS_PARAMS = "chage -d0 root; "
-
 USER_CLASSES = "image-mklibs image-prelink"
 
 PATCHRESOLVE = "noop"
@@ -60,4 +52,7 @@ RM_OLD_IMAGE = "1"
 INHERIT += "rm_work"
 CONF_VERSION = "1"
 
-IMAGE_FSTYPES ?= "ext4 tar.xz"
+INHERIT += "extrausers"
+
+EXTRA_USERS_PARAMS = "usermod -P alencon root; "
+hostname_pn-base-files = "your_hostname"
