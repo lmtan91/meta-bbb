@@ -43,6 +43,7 @@ SRC_URI = " \
     file://0006-dts-enable-i2c1-rtc-ds1338.patch \
     file://0007-dts-enable-rs422.patch \
     file://0008-dts-enable-B8-13-as-ESTOP_OUT.patch \
+    file://0009-dts-enable-P9-39-as-ADC.patch \
     \
     file://bbb-dcan0.dtsi;subdir=git/arch/arm/boot/dts \
     file://bbb-dcan1.dtsi;subdir=git/arch/arm/boot/dts \
